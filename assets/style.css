@@ -1,0 +1,29 @@
+.jumbotron {
+    text-align: center;
+}
+
+.card-deck {
+    align-items: center;
+
+}
+
+.card {
+    width: 350px;
+    margin: 30px;
+}
+
+.list-group{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.list-group-item{
+    width: 90%;
+}
+
+h4{
+    margin: 10px;
+}
+
