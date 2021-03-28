@@ -1,33 +1,41 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-
-
+//JEST for testing...
 
 
 inquirer
     .prompt([
         //questions start here
         {
-            type: 'input',
-            name: 'name',
-            message: 'what is your name?',
+            type: 'checkbox',
+            name: 'jobTitle',
+            message: 'what type of team member would you like to add?',
+            choices: ['manager', 'engineer', 'intern', 'i\'m done adding team members'],
             validate: (answer) => {
                 if (answer == '') {
-                    return 'please enter your name';
+                    return 'please make a selection';
                 }
                 return true;
-                //validate how-to video 
-                //[this youtube video](https://www.youtube.com/watch?v=1AxFrY2oSiw)
-                //by [Markodex](https://www.youtube.com/channel/UC7RGmhOjaxsBdCl_XEsDPrw)
+            }
+        },
+        {
+            type: 'input',
+            name: 'name',
+            message: 'team member\'s name:',
+            validate: (answer) => {
+                if (answer == '') {
+                    return 'please enter a name';
+                }
+                return true;
             }
         },
         {
             type: 'input',
             name: 'id',
-            message: 'what is your id nubmer?',
+            message: 'team member\'s id number:',
             validate: (answer) => {
                 if (answer == '') {
-                    return 'please enter your id number';
+                    return 'please enter an id number';
                 }
                 return true;
             }
@@ -35,83 +43,105 @@ inquirer
         {
             type: 'input',
             name: 'email',
-            message: 'what is your email address?',
+            message: 'team member\'s email:',
             validate: (answer) => {
                 if (answer == '') {
-                    return 'please enter your email address';
+                    return 'please enter an email address';
                 }
                 return true;
             }
         },
-        {
-            type: 'checkbox',
-            name: 'jobTitle',
-            message: 'what is your job title?',
-            choices: ['manager', 'engineer', 'intern'],
-            validate: (answer) => {
-                if (answer == '') {
-                    return 'please select a job title';
-                }
-                // if (answer == 'intern') {
-                //     inquirer.prompt([
-                //         type: 'input',
-                //         name: 'school',
-                //         message: 'what school do you attend?'
-                //     ])
-                // }
-                return true;
-            }
-        },
-
+        
     ])
-
-
-
 
     .then((answers) => {
         console.log(answers);
-        console.log(answers.jobTitle);
 
     });
 
 
-//JEST for testing...
+//----------------------------------------------------------- speculative! -----------------------------------------------------------//
+//----------------Constructor Time?------------------------//
+// function Manager(name, id, email, officeNumber) {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.officeNumber = officeNumber;
+// }
+// function Engineer(name, id, email, githubName) {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.githubName = githubName
+// }
+// function Intern(name, id, email, school) {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.school = school;
+// }
+//---------------------------------------------------------//
 
-//CLASSES
-//  Employee
-//  Manager
-//  Engineer 
-//  Intern 
+// -----------or...supermulitfunctionstyleboy? -----------//
+//        function teamMember(name, id, email, officeNumber, githubName, school) {
+//        this.name = name;
+//        this.id = id;
+//        this.email = email;
+//        this.officeNumber = officeNumber;
+//        this.githubName = githubName;
+//        this.school = school;
+//        and if this.property = '' --> return; maybe? i don't know how this works enough yet. 
+// }
 
-// what is the team manager's: 
-        // [name, id, email, office number]
+//----------------------------------------------------------- HTML! -----------------------------------------------------------//
 
-// which type of team member would you like to add?
-//    > engineer
-//      intern 
-//      i don't want to add anymore team members 
+    //--------------------------------------------------------------------- < doctype... > 
+    //--------------------------------------------------------------------- < links rels? boostraps? > 
+    //--------------------------------------------------------------------- < body >  
 
-        // what is the engineer's:
-        // [name, id, email, githubUsername] 
+    //--------------------------------------------------------------------- < div class="jumbotron" > 
+    //--------------------------------------------------------------------- < h1 > MY TEAM < /h1 > 
 
-//---------------------------------------------------------------
+    //--------------------------------------------------------------------- < div class="container" >
+    //--------------------------------------------------------------------- < div class="card-deck" id="level-#"> 
 
-// which type of team member would you like to add? 
-//      engineer
-//    > intern 
-//      i don't want to add anymore team members 
 
-        // what is the intern's:
-        // [name, ID, email, and school]
+// Manager.prototype.renderFacts = function () {
+    //--------------------------------------------------------------------- < div class="card" > 
+    //--------------------------------------------------------------------- < div class="card-header" > 
+    // var managerTitle = document.createElement('h4')
+    // managerTitle.textContent = `${answer.jobTitle}`
+    // document.getElementById('jobTitle').append(managerTitle)
 
-//---------------------------------------------------------------
+    // var managerName = document.createElement('h4');
+    // managerName.textContent = `${answer.name}`
+    // document.getElementById('employeeName').append(managerName)
+    //---------------------------------------------------------------------- < div class="card-body" > 
+    //---------------------------------------------------------------------- < ul class="list-group"> 
+    //---------------------------------------------------------------------- < li class="list-group-item">
+    // var managerId = document.createElement('li')
+    // managerId.textContent = `${answer.id}`
+    // document.getElementById('idNumber').append(managerId)
+    //---------------------------------------------------------------------- < li class="list-group-item">
+    // var managerEmail = document.createElement('li')
+    // managerEmail.textContent = `${answer.email}`
+    // document.getElementById('email').append(managerEmail)
+    //---------------------------------------------------------------------- < li class="list-group-item">
+    // var managerOffice = document.createElement('li')
+    // managerOffice.textContent = `${answer.officeNumber}`
+    //---------------------------------------------------------------------- < /managerCard > 
 
-// which type of team member would you like to add? 
-//      engineer
-//      intern
-//    > i don't want to add anymore team members 
+    //---------------------------Engineer.renderFacts----------------------- < another card > 
+    //---------------------------Intern.renderFacts------------------------- < another card > 
+    
 
-// no more team members? --> writes information into the html template 
+    //---------------------------------------------------------------------- < /body > 
+
+
+
+
+
+
 
 
 
