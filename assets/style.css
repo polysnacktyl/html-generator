@@ -1,29 +1,60 @@
+* {
+    font-family: 'Comfortaa', cursive;}
+
 .jumbotron {
+    font-family: 'Comfortaa', cursive;    
     text-align: center;
+    font-weight: 800;
 }
 
 .card-deck {
-    align-items: center;
-
+    display: flex;
+    justify-content: center;
 }
 
 .card {
-    width: 350px;
+    display: flex;
+    min-width: 350px;
+    max-width: 350px;
     margin: 30px;
+    justify-self: center;
 }
+
+.card-header {
+    padding-bottom: 2px;
+}
+
+.card-body {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 .list-group{
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    
 }
 
 .list-group-item{
-    width: 90%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 99%;
+    padding: 10px 10px 7px 10px ;
+
 }
 
 h4{
-    margin: 10px;
+    margin: 0px;
+    padding: 0px;
 }
 
+
+container {
+    justify-items: center;
+}
+
+#employeeName {
+    font-weight: bold;
+}
