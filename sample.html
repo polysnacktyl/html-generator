@@ -4,49 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-   
 
-    
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
     <title>Team Profile</title>
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
-        <h1>MY TEAM</h1>
+        <h1>The Whole Team</h1>
     </div>
 
     <div class="container">
         <div class="card-deck" id="level-1">
             <div class="card">
                 <div class="card-header">
-                    <h4 id="employeeName">Name</h4>
-                    <h4 id="jobTitle"><i class="fas fa-bullhorn"></i></h4>
+                    <h6 id="employeeName">`${data.Name}`</h6>
+                    <h6 id="jobTitle"><i class="fas fa-clipboard"></i> manager</h6>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li id="id" class="list-group-item">id (answer.quesiton)</li>
-                        <li id="email" class="list-group-item">email (answer.question)</li>
-                        <li id="last" class="list-group-item">office number (answer.question)</li>
+                        <li id="id" class="list-group-item">id: `${data.id}`</li>
+                        <li id="email" class="list-group-item">email: `${data.email}`</li>
+                        <li id="last" class="list-group-item">office: `${data.officeNumber}`</li>
                     </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 id="employeeName">Name</h4>
-                    <h4><i class="fas fa-laptop-code"></i></h4>
+                    <h6 id="employeeName">`${data.Name}`</h6>
+                    <h6 id="jobTitle"><i class="fas fa-laptop-code"></i> engineer</h6>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">id (answer.quesiton)</li>
-                        <li class="list-group-item">email (answer.question)</li>
-                        <li class="list-group-item">github name(answer.question)</li>
+                        <li class="list-group-item">id: `${data.id}`</li>
+                        <li class="list-group-item">email: `${data.email}`</li>
+                        <li class="list-group-item">github: `${data.githubName}`</li>
                     </ul>
                 </div>
             </div>
@@ -54,14 +55,14 @@
         <div class="card-deck" id="level-2">
             <div class="card">
                 <div class="card-header">
-                    <h4 id="employeeName">Name</h4>
-                    <h4 id="job-title"><i class="fas fa-user-graduate"></i></h4>
+                    <h6 id="employeeName">`${data.Name}`</h6>
+                    <h6 id="jobTitle"><i class="fas fa-user-graduate"></i> intern</h6>
                 </div>
                 <div class="card-body">
                     <ul id="answers-list" class="list-group">
-                        <li class="list-group-item">id (answer.quesiton)</li>
-                        <li class="list-group-item">email (answer.question)</li>
-                        <li class="list-group-item">github name(answer.question)</li>
+                        <li class="list-group-item">id: `${data.id}`</li>
+                        <li class="list-group-item">email: `${data.email}`</li>
+                        <li class="list-group-item">school: `${data.schoolName}`</li>
                     </ul>
                 </div>
             </div>

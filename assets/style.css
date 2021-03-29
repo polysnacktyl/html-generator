@@ -4,12 +4,15 @@
 .jumbotron {
     font-family: 'Comfortaa', cursive;    
     text-align: center;
-    font-weight: 800;
+    padding-bottom: 10px;
+    padding-top: 50px;
+
 }
 
 .card-deck {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .card {
@@ -18,10 +21,13 @@
     max-width: 350px;
     margin: 30px;
     justify-self: center;
+    
 }
 
 .card-header {
-    padding-bottom: 2px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
 .card-body {
@@ -56,5 +62,20 @@ container {
 }
 
 #employeeName {
-    font-weight: bold;
+    font-weight:900;
+    font-variant: small-caps;
+    font-size: 26px;
+}
+
+#jobTitle{
+    font-size: 18px;
+}
+
+h1 {
+    font-weight:900;
+    font-family: 'Varela Round', sans-serif;
+}
+
+h6 {
+    margin-bottom: 2px;
 }
