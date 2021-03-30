@@ -7,18 +7,22 @@ var validator = require("email-validator");
 let theWholeTeam = [];
 
 function Manager(name, id, email, officeNumber) {
+    this.jobTitle = 'manager';
     this.name = name;
     this.id = id;
     this.email = email;
     this.officeNumber = officeNumber;
+
 }
 function Engineer(name, id, email, githubName) {
+    this.jobTitle = 'engineer';
     this.name = name;
     this.id = id;
     this.email = email;
     this.githubName = githubName;
 }
 function Intern(name, id, email, school) {
+    this.jobTitle = 'intern';
     this.name = name;
     this.id = id;
     this.email = email;
@@ -54,7 +58,7 @@ inquirer.prompt([
         type: 'input',
         message: 'what is the manager\'s email address?',
         validate: (answer) => {
-                if ((answer == '') || (validator.validate(answer)) == false) {
+            if ((answer == '') || (validator.validate(answer)) == false) {
                 return 'please enter an email address';
             }
             return true;
@@ -239,17 +243,54 @@ function addIntern() {
             console.log(theWholeTeam);
             anotherTeamMember();
         });
+
+
 }
 
 function buildTeam() {
     console.log(theWholeTeam);
-}
+
+
+// forEach loop that will do a verb based on the string of text read in jobTitle
+// --> so that we may make and place team member cards based on job 
+// --> manager + engineer = level 1 card deck 
+// --> intern = level 2 card deck 
+    theWholeTeam.forEach((element) => {
+        console.log(element.jobTitle + ': ' + element.name); 
+        if (element.jobTitle == 'intern') {
+            console.log('there is an intern, but where is my coffee?');}
+    });
+
+   
+    
+    }
+
+
+
     // const filename = 'roster.html'
     // fs.writeFile(filename, ?___?, (err) =>
     //     err ? console.log(err) : console.log('Success!')
     // );
 
+
+
 // });
+
+// if (data.current.condition.text == 'Clear') {
+//     var clear = document.createElement('p');
+//     var clearIcon = document.createElement('img');
+//     var clearAdvice = "Clear skies, clear minds. Practice some calming breathing exercises.";
+//     clearIcon.src = "./assets/images/weather-icons/clearnight.png";
+//     clear.textContent = data.location.name + ': ' + data.current.temp_f + '°, ' + data.current.condition.text + '.';
+//     document.getElementById('weather').append(clearIcon);
+//     document.getElementById('weather').append(clear, clearAdvice);
+
+
+
+
+
+
+
 
 //-------------------------------------------------------- acceptance criteria ---------------------------------------------------------//
 // GIVEN a command-line application that accepts user input

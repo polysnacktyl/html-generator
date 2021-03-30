@@ -1,6 +1,19 @@
 * {
     font-family: 'Comfortaa', cursive;}
 
+    h1 {
+        font-weight:900;
+        font-family: 'Varela Round', sans-serif;
+    }
+    
+    h6 {
+        margin-bottom: 2px;
+    }
+
+    container {
+        justify-items: center;
+    }
+
 .jumbotron {
     font-family: 'Comfortaa', cursive;    
     text-align: center;
@@ -51,15 +64,6 @@
 
 }
 
-h4{
-    margin: 0px;
-    padding: 0px;
-}
-
-
-container {
-    justify-items: center;
-}
 
 #employeeName {
     font-weight:900;
@@ -71,11 +75,3 @@ container {
     font-size: 18px;
 }
 
-h1 {
-    font-weight:900;
-    font-family: 'Varela Round', sans-serif;
-}
-
-h6 {
-    margin-bottom: 2px;
-}
