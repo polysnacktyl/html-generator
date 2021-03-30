@@ -1,11 +1,29 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const validator = require("email-validator");
- 
-validator.validate("test@email.com");
+
 //JEST for testing...
 
 let theWholeTeam = [];
+
+function Manager(name, id, email, officeNumber) {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.officeNumber = officeNumber;
+}
+function Engineer(name, id, email, githubName) {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.githubName = githubName;
+}
+function Intern(name, id, email, school) {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.school = school;
+}
 
 //FIRST: MANAGER QUESTIONS
 inquirer.prompt([
@@ -58,9 +76,14 @@ inquirer.prompt([
 ])
     //ADD MANAGER INFO TO TEAM ARRAY AND CALL FUNCTION FOR NEXT STEP 
     .then(function (data) {
-        // turns manager answers data into teamMember object 
-        // add new manager team member object to [theWholeTeam]    (.push teamMember?) 
-        
+        const name = data.name
+        const id = data.id
+        const email = data.email
+        const officeNumber = data.officeNumber
+        const teamMember = new Manager(name, id, email, officeNumber)
+        theWholeTeam.push(teamMember)
+
+        console.log(theWholeTeam);
 
         anotherTeamMember();
 
@@ -85,6 +108,7 @@ function anotherTeamMember() {
                     addIntern();
                     break;
                 case 'no more team members':
+                    // writes the info into appropriate slots of html template
                     buildTeam();
                     break;
             }
@@ -141,11 +165,19 @@ function addEngineer() {
 
         },
     ])
-    //.PUSH ENGINFO TO [THEWHOLETEAM]
-    .then(function (data) {
-        anotherTeamMember();
+        //.PUSH ENGINFO TO [THEWHOLETEAM]
+        .then(function (data) {
+            const name = data.name
+            const id = data.id
+            const email = data.email
+            const githubName = data.githubName
+            const teamMember = new Engineer(name, id, email, githubName)
+            theWholeTeam.push(teamMember)
 
-    });
+            console.log(theWholeTeam);
+            anotherTeamMember();
+
+        });
 
 }
 
@@ -198,22 +230,26 @@ function addIntern() {
 
         },
     ])
-    //.PUSH INTERNFO TO [THEWHOLETEAM]
-    .then(function (data) {
-        anotherTeamMember();
-
-    });
+        //.PUSH INTERNFO TO [THEWHOLETEAM]
+        .then(function (data) {
+            const name = data.name
+            const id = data.id
+            const email = data.email
+            const school = data.school
+            const teamMember = new Intern(name, id, email, school)
+            theWholeTeam.push(teamMember)
+            console.log(theWholeTeam);
+            anotherTeamMember();
+        });
 }
 
-// function buildTeam() {function-verbs-go-here};
-
-
-
+function buildTeam() {
+    console.log(theWholeTeam);
+}
     // const filename = 'roster.html'
     // fs.writeFile(filename, ?___?, (err) =>
     //     err ? console.log(err) : console.log('Success!')
     // );
-
 
 // });
 
