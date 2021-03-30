@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const validator = require("email-validator");
+var validator = require("email-validator");
 
 //JEST for testing...
 
@@ -54,10 +54,9 @@ inquirer.prompt([
         type: 'input',
         message: 'what is the manager\'s email address?',
         validate: (answer) => {
-            if (answer == '') {
+                if ((answer == '') || (validator.validate(answer)) == false) {
                 return 'please enter an email address';
             }
-            validator.validate(answer);
             return true;
         }
     },
@@ -145,7 +144,7 @@ function addEngineer() {
             type: 'input',
             message: 'what is the engineer\'s email address?',
             validate: (answer) => {
-                if (answer == '') {
+                if ((answer == '') || (validator.validate(answer)) == false) {
                     return 'please enter an email address';
                 }
                 validator.validate(answer);
@@ -211,9 +210,10 @@ function addIntern() {
             type: 'input',
             message: 'what is the intern\'s email address?',
             validate: (answer) => {
-                if (answer == '') {
+                if ((answer == '') || (validator.validate(answer)) == false) {
                     return 'please enter an email address';
                 }
+                validator.validate(answer);
                 return true;
             }
         },

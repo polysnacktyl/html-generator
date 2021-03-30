@@ -7,16 +7,19 @@ this application collects information from a user and dynamically builds an HTML
 ## Installation 
 ```
 npm i
-
+```
+```
 npm install email-validator
 ```
 
 ## Usage
 ```
 const fs = require('fs');
-
+```
+```
 const inquirer = require('inquirer');
-
+```
+```
 const validator = require("email-validator");
 ```
 
