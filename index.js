@@ -1,33 +1,14 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 var validator = require("email-validator");
+const Employee = require("./__construct__/employee");
+const Manager = require("./__construct__/manager");
+const Engineer = require("./__construct__/engineer")
+const Intern = require("./__construct__/intern");
 
 //JEST for testing...
 
 let theWholeTeam = [];
-
-function Manager(name, id, email, officeNumber) {
-    this.jobTitle = 'manager';
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.officeNumber = officeNumber;
-
-}
-function Engineer(name, id, email, githubName) {
-    this.jobTitle = 'engineer';
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.githubName = githubName;
-}
-function Intern(name, id, email, school) {
-    this.jobTitle = 'intern';
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.school = school;
-}
 
 //FIRST: MANAGER QUESTIONS
 inquirer.prompt([
@@ -85,8 +66,6 @@ inquirer.prompt([
         const officeNumber = data.officeNumber
         const teamMember = new Manager(name, id, email, officeNumber)
         theWholeTeam.push(teamMember)
-
-        console.log(theWholeTeam);
 
         anotherTeamMember();
 
@@ -176,7 +155,6 @@ function addEngineer() {
             const teamMember = new Engineer(name, id, email, githubName)
             theWholeTeam.push(teamMember)
 
-            console.log(theWholeTeam);
             anotherTeamMember();
 
         });
@@ -234,13 +212,14 @@ function addIntern() {
     ])
         //.PUSH INTERNFO TO [THEWHOLETEAM]
         .then(function (data) {
+            console.log(data);
             const name = data.name
             const id = data.id
             const email = data.email
             const school = data.school
             const teamMember = new Intern(name, id, email, school)
             theWholeTeam.push(teamMember)
-            console.log(theWholeTeam);
+        
             anotherTeamMember();
         });
 
@@ -258,68 +237,33 @@ function buildTeam() {
     theWholeTeam.forEach((element) => {
         console.log(element.jobTitle + ': ' + element.name); 
         if (element.jobTitle == 'intern') {
-            console.log('there is an intern, but where is my coffee?');}
+            console.log('there is an intern, but where is my coffee?');
+        }
     });
+}
 
-   
-    
-    }
-
-
+// thinking switch case for card write
+        //     switch (data.pickNext) {
+        //         case 'engineer':
+        //             writengineer();
+        //             break;
+        //         case 'intern':
+        //             writeIntern();
+        //             break;
+        //         case 'no more team members':
+        //             // writes the info into appropriate slots of html template
+        //             buildTeam();
+        //             break;
+        //     }
+        // });
+    // });
+    // }
 
     // const filename = 'roster.html'
     // fs.writeFile(filename, ?___?, (err) =>
     //     err ? console.log(err) : console.log('Success!')
     // );
-
-
-
 // });
-
-// if (data.current.condition.text == 'Clear') {
-//     var clear = document.createElement('p');
-//     var clearIcon = document.createElement('img');
-//     var clearAdvice = "Clear skies, clear minds. Practice some calming breathing exercises.";
-//     clearIcon.src = "./assets/images/weather-icons/clearnight.png";
-//     clear.textContent = data.location.name + ': ' + data.current.temp_f + '°, ' + data.current.condition.text + '.';
-//     document.getElementById('weather').append(clearIcon);
-//     document.getElementById('weather').append(clear, clearAdvice);
-
-
-
-
-
-
-
-
-//-------------------------------------------------------- acceptance criteria ---------------------------------------------------------//
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for my team members and their information
-// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-// WHEN I click on an email address in the HTML
-//          <a mailto>
-// THEN my default email program opens and populates the TO field of the email with the address
-// WHEN I click on the GitHub username
-// THEN that GitHub profile opens in a new tab
-//          <a href 'https://....' target=_blank
-// WHEN I start the application
-// THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-// WHEN I enter the team manager’s name, employee ID, email address, and office number
-// THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-//          inquirer .prompt --> start with manager 
-//          then saves mgr info to variable? 
-//          then 'another team member?' engineeer, intern, or nah? 
-// WHEN I select the engineer option
-// THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-//          saves enj info to variable? 
-// WHEN I select the intern option
-// THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-//          saves to variable? 
-// WHEN I decide to finish building my team
-//          nah
-//          fs.writeFile(theWholeTeam!)
-// THEN I exit the application, and the HTML is generated
-//----------------------------------------------------------- speculative! -----------------------------------------------------------//
 
 
 
