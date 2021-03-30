@@ -1,5 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const validator = require("email-validator");
+ 
+validator.validate("test@email.com");
 //JEST for testing...
 
 let theWholeTeam = [];
@@ -36,6 +39,7 @@ inquirer.prompt([
             if (answer == '') {
                 return 'please enter an email address';
             }
+            validator.validate(answer);
             return true;
         }
     },
@@ -120,15 +124,16 @@ function addEngineer() {
                 if (answer == '') {
                     return 'please enter an email address';
                 }
+                validator.validate(answer);
                 return true;
             }
         },
         {
             name: 'githubName',
-            type: 'number',
+            type: 'input',
             message: 'what is the engineer\'s github user name?',
             validate: (answer) => {
-                if (isNaN(answer) || (answer == '')) {
+                if (answer == '') {
                     return 'please enter a github user name';
                 }
                 return true;
@@ -136,6 +141,12 @@ function addEngineer() {
 
         },
     ])
+    //.PUSH ENGINFO TO [THEWHOLETEAM]
+    .then(function (data) {
+        anotherTeamMember();
+
+    });
+
 }
 
 //if Intern...
@@ -176,10 +187,10 @@ function addIntern() {
         },
         {
             name: 'school',
-            type: 'number',
+            type: 'input',
             message: 'what school does the intern currently attend?',
             validate: (answer) => {
-                if (isNaN(answer) || (answer == '')) {
+                if (answer == '') {
                     return 'please enter a school';
                 }
                 return true;
@@ -187,6 +198,11 @@ function addIntern() {
 
         },
     ])
+    //.PUSH INTERNFO TO [THEWHOLETEAM]
+    .then(function (data) {
+        anotherTeamMember();
+
+    });
 }
 
 // function buildTeam() {function-verbs-go-here};
