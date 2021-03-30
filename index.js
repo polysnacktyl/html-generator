@@ -253,8 +253,6 @@ function buildTeam() {
 
 // });
 
-
-
 //-------------------------------------------------------- acceptance criteria ---------------------------------------------------------//
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
@@ -283,29 +281,6 @@ function buildTeam() {
 //          fs.writeFile(theWholeTeam!)
 // THEN I exit the application, and the HTML is generated
 //----------------------------------------------------------- speculative! -----------------------------------------------------------//
-
-
-//-------------------- Constructor Time? --------------------//
-// function Manager(name, id, email, officeNumber) {
-//     this.name = name;
-//     this.id = id;
-//     this.email = email;
-//     this.officeNumber = officeNumber;
-// }
-// function Engineer(name, id, email, githubName) {
-//     this.name = name;
-//     this.id = id;
-//     this.email = email;
-//     this.githubName = githubName
-// }
-// function Intern(name, id, email, school) {
-//     this.name = name;
-//     this.id = id;
-//     this.email = email;
-//     this.school = school;
-// }
-//-----------------------------------------------------------//
-
 
 //--------------------------------------------------------------- HTML! ---------------------------------------------------------------//
 

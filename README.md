@@ -24,7 +24,7 @@ const validator = require("email-validator");
 ## Credits 
 I made grateful use of [this wonderful email validator package](https://www.npmjs.com/package/email-validator) built by [Manish Saraan](https://github.com/manishsaraan). 
 
-I referenced [Markodex's](https://www.youtube.com/channel/UC7RGmhOjaxsBdCl_XEsDPrw) [youtube video](https://www.youtube.com/watch?v=1AxFrY2oSiw) for help with validating user input. 
+I referenced [Markodex's](https://www.youtube.com/channel/UC7RGmhOjaxsBdCl_XEsDPrw) inquirer [youtube tutorial](https://www.youtube.com/watch?v=1AxFrY2oSiw) for help with validating user input. 
 
 ## Features
 
