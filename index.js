@@ -147,7 +147,6 @@ function addEngineer() {
                 if ((answer == '') || (validator.validate(answer)) == false) {
                     return 'please enter an email address';
                 }
-                validator.validate(answer);
                 return true;
             }
         },
@@ -213,7 +212,6 @@ function addIntern() {
                 if ((answer == '') || (validator.validate(answer)) == false) {
                     return 'please enter an email address';
                 }
-                validator.validate(answer);
                 return true;
             }
         },
@@ -282,58 +280,7 @@ function buildTeam() {
 // THEN I exit the application, and the HTML is generated
 //----------------------------------------------------------- speculative! -----------------------------------------------------------//
 
-//--------------------------------------------------------------- HTML! ---------------------------------------------------------------//
 
-//--------------------------------------------------------------------- < doctype and assorted formalities... > 
-//--------------------------------------------------------------------- < links rels? boostraps? css? > 
-//--------------------------------------------------------------------- < body >  
-//--------------------------------------------------------------------- < div class='jumbotron' > 
-//--------------------------------------------------------------------- < h1 > MY TEAM < /h1 > 
-//--------------------------------------------------------------------- < div class='container-fluid' >
-// ----------- Manager.prototype.renderFacts function? ---------- //
-//--------------------------------------------------------------------- < div class='card' > 
-//--------------------------------------------------------------------- < div class='card-header' > 
-                // var managerTitle = document.createElement('h4')
-                // managerTitle.textContent = `${answer.jobTitle}`
-                // document.getElementById('jobTitle').append(managerTitle)
-
-// -------------------------------------------------------------------- //
-                // var managerName = document.createElement('h4');
-                // managerName.textContent = `${answer.name}`
-                // document.getElementById('employeeName').append(managerName)
-//--------------------------------------------------------------------- < /div class='card-header' >
-//---------------------------------------------------------------------- < div class='card-body' > 
-//---------------------------------------------------------------------- < ul class='list-group' > 
-//---------------------------------------------------------------------- < li class='list-group-item' >     
-                // var managerId = document.createElement('li')
-                // managerId.textContent = `${answer.id}`
-                // document.getElementById('idNumber').append(managerId)
-//---------------------------------------------------------------------- < li class='list-group-item' >
-                // var managerEmail = document.createElement('li')
-                // managerEmail.textContent = `${answer.email}`
-                // document.getElementById('email').append(managerEmail)
-//---------------------------------------------------------------------- < li class='list-group-item' >
-                // var managerOffice = document.createElement('li')
-                // managerOffice.textContent = `${answer.officeNumber}`
-                // document.getElementById('officeNumber).append(managerOffice)
-//---------------------------------------------------------------------- < /ul class='list-group' >
-//---------------------------------------------------------------------- < /managerCard > 
-//---------------------------------------------------------------------- < /div class='column' > 
-//---------------------------------------------------------------------- < div class='column' > 
-//---------------------------Engineer.renderFacts----------------------- < engineer card > 
-//---------------------------------------------------------------------- < /div class='column' >
-//---------------------------------------------------------------------- < /section > 
-
-//---------------------------------------------------------------------- < section class='container-fluid' > 
-//---------------------------------------------------------------------- < div class='column' > 
-//---------------------------Intern.renderFacts------------------------- < intern card > 
-//---------------------------------------------------------------------- < /div class='column' > 
-//---------------------------------------------------------------------- < /section> 
-
-//---------------------------------------------------------------------- < /body > 
-//---------------------------------------------------------------------- < /html > 
-
-//----------------------------------------------------- End o speculative HTML! -------------------------------------------------------//
 
 
 

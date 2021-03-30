@@ -11,7 +11,6 @@ npm i
 ```
 npm install email-validator
 ```
-
 ## Usage
 ```
 const fs = require('fs');
