@@ -7,8 +7,6 @@ const Engineer = require("./__construct__/engineer")
 const Intern = require("./__construct__/intern");
 const Cards = [];
 
-//JEST for testing...
-
 let theWholeTeam = [];
 
 //FIRST: MANAGER QUESTIONS
@@ -89,7 +87,7 @@ function anotherTeamMember() {
                     addIntern();
                     break;
                 case 'no more team members':
-                    // writes the info into appropriate slots of html template
+                    // console.log(theWholeTeam);
                     buildCards();
                     break;
             }
@@ -207,7 +205,6 @@ function addIntern() {
     ])
         //.PUSH INTERNFO TO [THEWHOLETEAM]
         .then(function (data) {
-            console.log(data);
             const name = data.name
             const id = data.id
             const email = data.email
@@ -221,41 +218,43 @@ function addIntern() {
 
 function buildCards() {
     theWholeTeam.forEach((element) => {
-         
-
-        const div =
-            `<div class="card-deck">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 id="employeeName">${element.name}</h6>
-                        <h6 id="jobTitle"><i class="fas fa-clipboard"></i> manager</h6>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li id="id" class="list-group-item">id: ${element.id}</li>
-                            <li id="email" class="list-group-item">email: ${element.email}</li>
-                            <li id="last" class="list-group-item">office: ${element.officeNumber}</li>
-                        </ul>
+        const div = (
+            `   <div class="card">
+                        <div class="card-header">
+                            <h6 id="employeeName">${element.name}</h6>
+                            <h6 id="jobTitle"><i class="fas fa-clipboard"></i> manager</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li id="id" class="list-group-item">id: ${element.id}</li>
+                                <li id="email" class="list-group-item">email: ${element.email}</li>
+                                <li id="last" class="list-group-item">office: ${element.officeNumber}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-          `
+              `
+        );
         Cards.push(div);
-        console.log(Cards);
 
-        writeHTML();
+        // console.log('feasibly, this could be an intern\'s card');
+        // console.log(element.school);
+        // }
+  
+        
     }
-    )};
+    )
+    writeHTML();
+};
 
 
 function writeHTML() {
+//     console.log(Cards);
+// }
     Cards.forEach((object) => {
-
-        const doc = 
-
+        const doc =
         `<!DOCTYPE html>
         <html lang="en">
-
         <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -281,17 +280,11 @@ function writeHTML() {
                 ${object}
             </div>
         </body>
-        </html>
-        `
-
+        </html>`
+        
         const filename = 'roster.html'
         fs.writeFile(filename, doc, (err) =>
             err ? console.log(err) : console.log('Success!')
-        );
-    })
-
-
-}
-
-
+        )}
+    )}
 
