@@ -5,6 +5,7 @@ const Employee = require("./__construct__/employee");
 const Manager = require("./__construct__/manager");
 const Engineer = require("./__construct__/engineer")
 const Intern = require("./__construct__/intern");
+const Cards = [];
 
 //JEST for testing...
 
@@ -55,7 +56,6 @@ inquirer.prompt([
             }
             return true;
         }
-
     },
 ])
     //ADD MANAGER INFO TO TEAM ARRAY AND CALL FUNCTION FOR NEXT STEP 
@@ -64,11 +64,10 @@ inquirer.prompt([
         const id = data.id
         const email = data.email
         const officeNumber = data.officeNumber
-        const teamMember = new Manager(name, id, email, officeNumber)
-        theWholeTeam.push(teamMember)
+        const Employee = new Manager(name, id, email, officeNumber)
+        theWholeTeam.push(Employee)
 
         anotherTeamMember();
-
     });
 
 //ADD ANOTHER TEAM MEMBER/SPECIFY THEIR JOB-TITLE
@@ -91,7 +90,7 @@ function anotherTeamMember() {
                     break;
                 case 'no more team members':
                     // writes the info into appropriate slots of html template
-                    buildTeam();
+                    buildCards();
                     break;
             }
         });
@@ -143,7 +142,6 @@ function addEngineer() {
                 }
                 return true;
             }
-
         },
     ])
         //.PUSH ENGINFO TO [THEWHOLETEAM]
@@ -152,13 +150,11 @@ function addEngineer() {
             const id = data.id
             const email = data.email
             const githubName = data.githubName
-            const teamMember = new Engineer(name, id, email, githubName)
-            theWholeTeam.push(teamMember)
+            const Employee = new Engineer(name, id, email, githubName)
+            theWholeTeam.push(Employee)
 
             anotherTeamMember();
-
         });
-
 }
 
 //if Intern...
@@ -207,7 +203,6 @@ function addIntern() {
                 }
                 return true;
             }
-
         },
     ])
         //.PUSH INTERNFO TO [THEWHOLETEAM]
@@ -219,60 +214,84 @@ function addIntern() {
             const school = data.school
             const teamMember = new Intern(name, id, email, school)
             theWholeTeam.push(teamMember)
-        
+
             anotherTeamMember();
         });
-
-
 }
 
-function buildTeam() {
-    console.log(theWholeTeam);
-
-
-// forEach loop that will do a verb based on the string of text read in jobTitle
-// --> so that we may make and place team member cards based on job 
-// --> manager + engineer = level 1 card deck 
-// --> intern = level 2 card deck 
+function buildCards() {
     theWholeTeam.forEach((element) => {
-        console.log(element.jobTitle + ': ' + element.name); 
-        if (element.jobTitle == 'intern') {
-            console.log('there is an intern, but where is my coffee?');
-        }
-    });
+         
+
+        const div =
+            `<div class="card-deck">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 id="employeeName">${element.name}</h6>
+                        <h6 id="jobTitle"><i class="fas fa-clipboard"></i> manager</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li id="id" class="list-group-item">id: ${element.id}</li>
+                            <li id="email" class="list-group-item">email: ${element.email}</li>
+                            <li id="last" class="list-group-item">office: ${element.officeNumber}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          `
+        Cards.push(div);
+        console.log(Cards);
+
+        writeHTML();
+    }
+    )};
+
+
+function writeHTML() {
+    Cards.forEach((object) => {
+
+        const doc = 
+
+        `<!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
+        <title>Team Profile</title>
+        </head>
+
+         <body>
+            <div class="jumbotron jumbotron-fluid">
+                <h1>The Whole Team</h1>
+            </div>
+
+            <div class="container">
+                <div class="card-deck">
+                ${object}
+            </div>
+        </body>
+        </html>
+        `
+
+        const filename = 'roster.html'
+        fs.writeFile(filename, doc, (err) =>
+            err ? console.log(err) : console.log('Success!')
+        );
+    })
+
+
 }
-
-// thinking switch case for card write
-        //     switch (data.pickNext) {
-        //         case 'engineer':
-        //             writengineer();
-        //             break;
-        //         case 'intern':
-        //             writeIntern();
-        //             break;
-        //         case 'no more team members':
-        //             // writes the info into appropriate slots of html template
-        //             buildTeam();
-        //             break;
-        //     }
-        // });
-    // });
-    // }
-
-    // const filename = 'roster.html'
-    // fs.writeFile(filename, ?___?, (err) =>
-    //     err ? console.log(err) : console.log('Success!')
-    // );
-// });
-
-
-
-
-
-
-
-
-
 
 
 

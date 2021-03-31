@@ -28,6 +28,8 @@ I made grateful use of [this wonderful email validator package](https://www.npmj
 
 I referenced [Markodex's](https://www.youtube.com/channel/UC7RGmhOjaxsBdCl_XEsDPrw) inquirer [youtube tutorial](https://www.youtube.com/watch?v=1AxFrY2oSiw) for help with validating user input. 
 
+Referenced [Hybrid's](https://stackoverflow.com/users/3345051/hybrid) response to [this Stack Overflow thread](https://stackoverflow.com/a/55426653/15343336) about forEach'ing objects from an array into the HTML. 
+
 ## Features
 
 ## Contributions
