@@ -5,11 +5,10 @@ const Employee = require("./__construct__/employee");
 const Manager = require("./__construct__/manager");
 const Engineer = require("./__construct__/engineer")
 const Intern = require("./__construct__/intern");
-const Cards = [];
+var Cards = [];
 
 let theWholeTeam = [];
 
-//FIRST: MANAGER QUESTIONS
 inquirer.prompt([
     {
         name: 'name',
@@ -56,7 +55,7 @@ inquirer.prompt([
         }
     },
 ])
-    //ADD MANAGER INFO TO TEAM ARRAY AND CALL FUNCTION FOR NEXT STEP 
+
     .then(function (data) {
         const name = data.name
         const id = data.id
@@ -68,7 +67,6 @@ inquirer.prompt([
         anotherTeamMember();
     });
 
-//ADD ANOTHER TEAM MEMBER/SPECIFY THEIR JOB-TITLE
 function anotherTeamMember() {
     inquirer.prompt([
         {
@@ -94,7 +92,6 @@ function anotherTeamMember() {
         });
 }
 
-// if Engineer...
 function addEngineer() {
     inquirer.prompt([
         {
@@ -155,7 +152,6 @@ function addEngineer() {
         });
 }
 
-//if Intern...
 function addIntern() {
     inquirer.prompt([
         {
@@ -219,8 +215,9 @@ function addIntern() {
 function buildCards() {
     theWholeTeam.forEach((element) => {
         switch (element.jobTitle) {
-            
+
             case 'manager':
+                console.log("element manager: ", ",element");
                 var div =
                     `<div class="card">
                         <div class="card-header">
@@ -230,16 +227,38 @@ function buildCards() {
                         <div class="card-body">
                             <ul class="list-group">
                                 <li id="id" class="list-group-item">id: ${element.id}</li>
-                                <li id="email" class="list-group-item">email: ${element.email}</li>
+                                <li id="email" class="list-group-item">email: <a href="mailto:${element.email}" target="_blank" rel="noopener noreferrer">${element.email}</a></li>
+                                
                                 <li id="officeNumber" class="list-group-item">office: ${element.officeNumber}</li>
                             </ul>
                         </div>
                     </div>`
-                    Cards.push(div)
-                    
+                Cards.push(div)
+                break;
+
+            case 'engineer':
+                console.log("element intern : ", element)
+                var div =
+                    `<div class="card">
+                                        <div class="card-header">
+                                            <h6 id="employeeName">${element.name}</h6>
+                                            <h6 id="jobTitle"><i class="fas fa-laptop-code"></i> engineer</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <li id="id" class="list-group-item">id: ${element.id}</li>
+                                                <li id="email" class="list-group-item">email: <a href="mailto:${element.email}" target="_blank" rel="noopener noreferrer">${element.email}</a></li>
+                                                <li id=githubName" class="list-group-item">github:  <a href="https://github.com/${element.githubName}" target="_blank">${element.githubName}</a> </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>`
+                Cards.push(div)
+                break;
 
             case 'intern':
-                var dav =
+                var div =
                     `<div class="card">
                         <div class="card-header">
                             <h6 id="employeeName">${element.name}</h6>
@@ -248,12 +267,14 @@ function buildCards() {
                         <div class="card-body">
                             <ul class="list-group">
                                 <li id="id" class="list-group-item">id: ${element.id}</li>
-                                <li id="email" class="list-group-item">email: ${element.email}</li>
+                                <li id="email" class="list-group-item">email: <a href="mailto:${element.email}" target="_blank" rel="noopener noreferrer">${element.email}</a></li>
                                 <li id="school" class="list-group-item">school: ${element.school}</li>
                             </ul>
                         </div>
                     </div>`
-                    Cards.push(dav)
+                Cards.push(div)
+                break;
+            default: console.log('nothing to do')
         }
 
     })
@@ -261,9 +282,6 @@ function buildCards() {
     console.log(Cards);
     writeHTML()
 }
-
-
-
 
 function writeHTML() {
 
@@ -295,12 +313,14 @@ function writeHTML() {
 
     Cards.forEach((object) => {
 
-        doc += (object) +
-        `</div>
+        doc += (object)
+    });
+
+    `</div>
         </body>
         </html>`;
 
-    });
+
     const filename = 'roster.html'
     fs.writeFile(filename, doc, (err) =>
         err ? console.log(err) : console.log('Success!')

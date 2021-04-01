@@ -1,76 +1,93 @@
 * {
-    font-family: 'Comfortaa', cursive;}
+    font-family: 'Comfortaa', cursive;
+}
 
-    h1 {
-        font-weight:900;
-        font-family: 'Varela Round', sans-serif;
-    }
-    
-    h6 {
-        margin-bottom: 2px;
-    }
+h1 {
+    font-weight: 900;
+    font-family: 'Varela Round', sans-serif;
+}
 
-    container {
-        justify-items: center;
-    }
+h6 {
+    margin-bottom: 2px;
+}
+
+a:link {
+    color: black;
+    font-size: 16px; 
+  }
+  
+  a:visited {
+    color: black;
+  }
+  
+  a:hover {
+    color: grey;
+  }
+  
+  a:active {
+    color:aquamarine;
+  }
+
+container {
+    justify-items: center;
+}
 
 .jumbotron {
-    font-family: 'Comfortaa', cursive;    
-    text-align: center;
+    font-family   : 'Comfortaa', cursive;
+    text-align    : center;
     padding-bottom: 10px;
-    padding-top: 50px;
+    padding-top   : 50px;
 
 }
 
 .card-deck {
-    display: flex;
+    display        : flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom  : 20px;
 }
 
 .card {
-    display: flex;
-    min-width: 350px;
-    max-width: 350px;
-    margin: 30px;
+    display     : flex;
+    min-width   : 350px;
+    max-width   : 350px;
+    margin      : 30px;
     justify-self: center;
-    
+
 }
 
 .card-header {
-    padding-left: 20px;
-    padding-top: 10px;
+    padding-left  : 20px;
+    padding-top   : 10px;
     padding-bottom: 0px;
 }
 
 .card-body {
-    padding-top: 5px;
-    padding-left: 10px;
+    padding-top  : 5px;
+    padding-left : 10px;
     padding-right: 10px;
 }
 
 
-.list-group{
-    display: flex;
+.list-group {
+    display    : flex;
     align-items: center;
-    width: 100%;
-    
+    width      : 100%;
+
 }
 
-.list-group-item{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    width: 99%;
-    padding: 10px 10px 7px 10px ;
+.list-group-item {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width      : 99%;
+    padding    : 10px 10px 7px 10px;
 
 }
 
 #employeeName {
-    font-weight:900;
+    font-weight : 900;
     font-variant: small-caps;
-    font-size: 26px;
+    font-size   : 26px;
 }
 
-#jobTitle{
+#jobTitle {
     font-size: 18px;
 }
-
