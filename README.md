@@ -4,6 +4,8 @@
 ## Description
 this application collects information from a user and dynamically builds an HTML page that displays a profile of an entire work team with name, id, emails, and other information pertinent to their role. 
 
+![image](/assets/images/demo.gif)
+
 ## Installation 
 ```
 npm i
