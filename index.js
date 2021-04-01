@@ -218,8 +218,11 @@ function addIntern() {
 
 function buildCards() {
     theWholeTeam.forEach((element) => {
-        const div = (
-            `   <div class="card">
+        switch (element.jobTitle) {
+            
+            case 'manager':
+                var div =
+                    `<div class="card">
                         <div class="card-header">
                             <h6 id="employeeName">${element.name}</h6>
                             <h6 id="jobTitle"><i class="fas fa-clipboard"></i> manager</h6>
@@ -228,63 +231,79 @@ function buildCards() {
                             <ul class="list-group">
                                 <li id="id" class="list-group-item">id: ${element.id}</li>
                                 <li id="email" class="list-group-item">email: ${element.email}</li>
-                                <li id="last" class="list-group-item">office: ${element.officeNumber}</li>
+                                <li id="officeNumber" class="list-group-item">office: ${element.officeNumber}</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-              `
-        );
-        Cards.push(div);
+                    </div>`
+                    Cards.push(div)
+                    
 
-        // console.log('feasibly, this could be an intern\'s card');
-        // console.log(element.school);
-        // }
-  
-        
-    }
-    )
-    writeHTML();
-};
+            case 'intern':
+                var dav =
+                    `<div class="card">
+                        <div class="card-header">
+                            <h6 id="employeeName">${element.name}</h6>
+                            <h6 id="jobTitle"><i class="fas fa-user-graduate"></i> intern</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li id="id" class="list-group-item">id: ${element.id}</li>
+                                <li id="email" class="list-group-item">email: ${element.email}</li>
+                                <li id="school" class="list-group-item">school: ${element.school}</li>
+                            </ul>
+                        </div>
+                    </div>`
+                    Cards.push(dav)
+        }
+
+    })
+    console.log(theWholeTeam)
+    console.log(Cards);
+    writeHTML()
+}
+
+
 
 
 function writeHTML() {
-//     console.log(Cards);
-// }
-    Cards.forEach((object) => {
-        const doc =
+
+    var doc =
         `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./assets/style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
-        <title>Team Profile</title>
-        </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
+    <title>Team Profile</title>
+    </head>
 
-         <body>
-            <div class="jumbotron jumbotron-fluid">
-                <h1>The Whole Team</h1>
-            </div>
+     <body>
+        <div class="jumbotron jumbotron-fluid">
+            <h1>The Whole Team</h1>
+        </div>
 
-            <div class="container">
-                <div class="card-deck">
-                ${object}
-            </div>
+        <div class="container">
+            <div class="card-deck">`;
+
+    Cards.forEach((object) => {
+
+        doc += (object) +
+        `</div>
         </body>
-        </html>`
-        
-        const filename = 'roster.html'
-        fs.writeFile(filename, doc, (err) =>
-            err ? console.log(err) : console.log('Success!')
-        )}
-    )}
+        </html>`;
+
+    });
+    const filename = 'roster.html'
+    fs.writeFile(filename, doc, (err) =>
+        err ? console.log(err) : console.log('Success!')
+    )
+}
 
