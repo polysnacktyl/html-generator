@@ -6,23 +6,16 @@ this application collects information from a user and dynamically builds an HTML
 
 ![image](https://raw.githubusercontent.com/polysnacktyl/team-profile-generator/main/assets/demo.gif)
 
-## Installation 
-```
-npm i
-```
-```
-npm install email-validator
-```
-## Usage
-```
-const fs = require('fs');
-```
-```
-const inquirer = require('inquirer');
-```
-```
-const validator = require("email-validator");
-```
+## Installation and Usage
+
+1. git clone git@github.com:polysnacktyl/html-generator.git
+2. cd into project directory
+3. npm install 
+4. node index.js
+5. answer questions as prompted 
+6. select 'no more team members' to generate html
+7. view newly created roster.html file in broswer 
+
 
 
 ## Credits 
